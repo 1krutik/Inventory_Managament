@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './InventoryList.css'; // Separate CSS file for styling
 
 const InventoryList = ({ items, suppliers }) => {
     const [inventory, setInventory] = useState(items);
@@ -21,7 +22,8 @@ const InventoryList = ({ items, suppliers }) => {
 
     return (
         <div className="inventory-list">
-            <table>
+            <h2 className="inventory-title">Inventory Overview</h2>
+            <table className="inventory-table">
                 <thead>
                     <tr>
                         <th>Item Name</th>
@@ -35,22 +37,22 @@ const InventoryList = ({ items, suppliers }) => {
                 <tbody>
                     {inventory.map((item, index) => {
                         const supplier = suppliers.find(s => s.id.toString() === item.supplierId.toString());
-                        const stockLevel = item.quantity > 500 ? 'green' : 'red';
+                        const stockLevelClass = item.quantity > 500 ? 'stock-sufficient' : 'stock-low';
                         return (
                             <tr key={index}>
                                 <td>{item.name}</td>
                                 <td>{item.quantity}</td>
                                 <td>{item.category}</td>
                                 <td>{supplier ? supplier.name : 'Unknown'}</td>
-                                <td style={{ color: stockLevel }}>
+                                <td className={stockLevelClass}>
                                     {item.quantity > 500 ? 'Sufficient' : 'Low'}
                                 </td>
                                 <td>
-                                    <div style={{ display: 'flex', gap: '10px' }}>
-                                        <button onClick={() => handleEdit(index)} style={styles.button}>
+                                    <div className="action-buttons">
+                                        <button onClick={() => handleEdit(index)} className="btn edit-btn">
                                             Edit
                                         </button>
-                                        <button onClick={() => handleDelete(index)} style={styles.button}>
+                                        <button onClick={() => handleDelete(index)} className="btn delete-btn">
                                             Remove
                                         </button>
                                     </div>
@@ -62,18 +64,6 @@ const InventoryList = ({ items, suppliers }) => {
             </table>
         </div>
     );
-};
-
-
-const styles = {
-    button: {
-        padding: '8px 12px',
-        backgroundColor: '#007bff',
-        color: 'white',
-        border: 'none',
-        borderRadius: '4px',
-        cursor: 'pointer',
-    },
 };
 
 export default InventoryList;

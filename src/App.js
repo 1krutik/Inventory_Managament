@@ -69,7 +69,7 @@ const styles = {
   footer: {
     marginTop: '20px',
     padding: '20px',
-    backgroundColor: '#007bff',
+    backgroundColor: 'green',
     color: 'white',
     textAlign: 'center',
     borderTop: '1px solid #0056b3',

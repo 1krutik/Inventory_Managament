@@ -1,0 +1,75 @@
+/* InventoryList.css */
+
+.inventory-list {
+    width: 90%;
+    margin: 40px auto;
+    font-family: 'Arial', sans-serif;
+}
+
+.inventory-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.inventory-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.inventory-table th, 
+.inventory-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.inventory-table th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.inventory-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.stock-sufficient {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.stock-low {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
